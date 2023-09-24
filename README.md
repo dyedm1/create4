@@ -14,8 +14,8 @@
 ### How
 1. Store the `deployedCode` of the desired contract somewhere on-chain 
    (in order of gas cost)
-   - If the network supports store the code in transient storage with `TSTORE`
-   - If the network does not support [EIP-1153](https://eips.ethereum.org/EIPS/eip-1153)  deploy the contract using your method of choice and use the address as a reference to the code
+   - If the network supports [EIP-1153](https://eips.ethereum.org/EIPS/eip-1153) store the code in transient storage with `TSTORE`
+   - If the network does not support [EIP-1153](https://eips.ethereum.org/EIPS/eip-1153) deploy the contract using your method of choice and use the address as a reference to the code
 2. Expose the `deployedCode` via a getter function with support for returning from both transient storage and from a contract address based on previously set flags in storage. This ensures that the method of code storage does not affect the address derivation formula.
 3. `CREATE2` with a user's salt and "bootstrap" `initCode` containing their address somewhere (for front-running protection) that queries the `deployedCode` from the getter function and returns it.
 4. We now have a process that can be used to deploy any bytecode with a deterministic address based on the `msg.sender` and a salt.
