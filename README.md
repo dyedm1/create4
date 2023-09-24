@@ -27,6 +27,7 @@ For `Create4Factory`, the `initCode` is constructed as follows:
 - `Create4Factory` address: `ffffffffffffffffffffffffffffffffffffffff`
 - Code segment 2: `5af13d5f5f3e3d5ff3`
 - Deployer address (user calling `create4`): `ffffffffffffffffffffffffffffffffffffffff`
+
 Result: `0x5f5f5f5f5f735<Create4Factory address>5af13d5f5f3e3d5ff3<deployer address>`
 #### Example
 If we have
