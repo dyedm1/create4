@@ -1,6 +1,6 @@
 # CREATE4
 
-[![tests](https://github.com/dyedm1/create4/actions/workflows/tests.yml/badge.svg)](https://github.com/0xsequence/create4/actions/workflows/tests.yml)
+[![tests](https://github.com/dyedm1/create4/actions/workflows/ci.yml/badge.svg)](https://github.com/dyedm1/create4/actions/workflows/ci.yml)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 ## Brief history lesson
