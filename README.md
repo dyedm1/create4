@@ -48,8 +48,8 @@ Our `initCode` would be:
 
 ### Limitations
 
-- ~2x deployment cost increase for chains without EIP-1153 (transient storage) support
-- ~5% deployment cost increase for chains with EIP-1153 support
+- ~1.93-1.95x deployment cost increase for chains without EIP-1153 (transient storage) support
+- ~7-10% deployment cost increase for chains with EIP-1153 support
 - No constructor support (deployed bytecode must be precomputed)
 
 ### Cross-chain Deployments
@@ -59,6 +59,39 @@ None yet :)
 ### Usage
 
 Call the `create4` method on the `Create4Factory`, provide the contract `creationCode` (on EIP-1153 networks) or the address of a deployed contract containing the code you want to deploy (on non-EIP-1153 networks) and a salt. Different contract codes will result on the same address as long as the same salt is provided.
+
+### Gas benchmark
+
+#### Methodology
+We compare the approximate cost of deploying a contract consisting of N `FF` bytes from an EOA via `CREATE2` and `CREATE4`
+ - Transient storage: `create4(bytes, bytes32)` vs `CREATE2`
+ - Deployed code: `create4(address, bytes32)` vs `CREATE2`
+  
+Note: deployed code benchmarks also consider the cost of deploying the code from an EOA before calling `create4(address, bytes32)`
+
+The code for the benchmarks can be found in [test/Gasbench.t.sol](./test/Gasbench.sol) and the results may be reproduced locally by running:
+```bash
+forge test --use bin/solc --match-contract C4GasBench -vv
+```
+#### 24.576KB
+
+- Transient storage: 1.072x more expensive than CREATE2
+
+- Deployed code: 1.931x more expensive than CREATE2
+
+#### 12.288KB
+- Transient storage: 1.080x more expensive than CREATE2
+- Deployed code: 1.935x more expensive than CREATE2
+  
+#### 6.144KB
+
+- Transient storage: 1.095x more expensive than CREATE2
+- Deployed code: 1.943x more expensive than CREATE2
+
+#### 0.001KB
+
+- Transient storage: 3.075x more expensive than CREATE2
+- Deployed code: 2.902x more expensive than CREATE2
 
 ### Install (interface)    
 ```bash
