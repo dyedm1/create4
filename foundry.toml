@@ -1,5 +1,7 @@
 [profile.default]
 cancun = true
+optimizer = true
+optimizer_runs = 9_999_999
 [profile.default.fuzz]
 runs = 1_000_000
 [profile.ci.fuzz]
