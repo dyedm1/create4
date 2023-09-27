@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
-pragma solidity ^0.8.13;
+pragma solidity ^0.8.20;
 
 import {Test, console2} from "forge-std/Test.sol";
 
@@ -12,7 +12,7 @@ contract TestCreate4Factory is Test {
 
     Create4Factory internal C4F;
 
-    function expectedAddress(address deployer, bytes32 salt) internal returns (address) {
+    function expectedAddress(address deployer, bytes32 salt) internal view returns (address) {
         bytes32 bootstrapCodeHash = keccak256(
             abi.encodePacked(
                 BOOTSTRAP_CODE_SECTION_1, bytes20(address(C4F)), BOOTSTRAP_CODE_SECTION_2, bytes20(address(deployer))
