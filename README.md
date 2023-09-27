@@ -28,14 +28,14 @@ For `Create4Factory`, the `initCode` is constructed as follows:
 - Code segment 2: `5af13d5f5f3e3d5ff3`
 - Deployer address (user calling `create4`): `ffffffffffffffffffffffffffffffffffffffff`
 
-Result: `0x5f5f5f5f5f735<Create4Factory address>5af13d5f5f3e3d5ff3<deployer address>`
+Result: `0x5f5f5f5f5f73<Create4Factory address>5af13d5f5f3e3d5ff3<deployer address>`
 #### Example
 If we have
 - `Create4Factory` address: `0xe358511cd9bf45c8a4d4aaf96ad5f6234ad20282` (note: not the real-world address!)
 - Deployer address: `0xab5801a7d398351b8be11c439e05c5b3259aec9b` (Vb)
 
 Our `initCode` would be:
-`0x5f5f5f5f5f735e358511cd9bf45c8a4d4aaf96ad5f6234ad202825af13d5f5f3e3d5ff3ab5801a7d398351b8be11c439e05c5b3259aec9b`
+`0x5f5f5f5f5f73e358511cd9bf45c8a4d4aaf96ad5f6234ad202825af13d5f5f3e3d5ff3ab5801a7d398351b8be11c439e05c5b3259aec9b`
 
 ### Features
 
@@ -82,7 +82,7 @@ forge test --use bin/solc
 forge fmt
 ```
 
-### Contract example
+## Contract example
 
 ```javascript
 //SPDX-License-Identifier: GPL-2.0-or-later
