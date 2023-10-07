@@ -23,19 +23,17 @@
 ### Initcode for address derivation
 
 For `Create4Factory`, the `initCode` is constructed as follows:
-- Code segment 1: `5f5f5f5f5f73` 
-- `Create4Factory` address: `ffffffffffffffffffffffffffffffffffffffff`
-- Code segment 2: `5af13d5f5f3e3d5ff3`
-- Deployer address (user calling `create4`): `ffffffffffffffffffffffffffffffffffffffff`
+- Executable constructor: `3636363636335af13d36363e3d36f3` 
+- Deployer address (user calling `create4`): `ffffffffffffffffffffffffffffffffffffffff` (20-byte salt)
 
-Result: `0x5f5f5f5f5f73<Create4Factory address>5af13d5f5f3e3d5ff3<deployer address>`
+Result: `0x3636363636335af13d36363e3d36f3<deployer address>`
 #### Example
 If we have
 - `Create4Factory` address: `0xe358511cd9bf45c8a4d4aaf96ad5f6234ad20282` (note: not the real-world address!)
 - Deployer address: `0xab5801a7d398351b8be11c439e05c5b3259aec9b` (Vb)
 
 Our `initCode` would be:
-`0x5f5f5f5f5f73e358511cd9bf45c8a4d4aaf96ad5f6234ad202825af13d5f5f3e3d5ff3ab5801a7d398351b8be11c439e05c5b3259aec9b`
+`0x3636363636335af13d36363e3d36f3ab5801a7d398351b8be11c439e05c5b3259aec9b`
 
 ### Features
 
