@@ -6,17 +6,13 @@ import {Test, console2} from "forge-std/Test.sol";
 import {Create4Factory} from "src/Create4Factory.sol";
 
 contract TestCreate4Factory is Test {
-    bytes15 internal constant BOOTSTRAP_CODE = hex"3636363636335af13d36363e3d36f3"; 
+    bytes15 internal constant BOOTSTRAP_CODE = hex"3636363636335af13d36363e3d36f3";
     address internal constant EIP_1153_MAGIC = address(0x4549502d31313533);
 
     Create4Factory internal C4F;
 
     function expectedAddress(address deployer, bytes32 salt) internal view returns (address) {
-        bytes32 bootstrapCodeHash = keccak256(
-            abi.encodePacked(
-                BOOTSTRAP_CODE, bytes20(address(deployer))
-            )
-        );
+        bytes32 bootstrapCodeHash = keccak256(abi.encodePacked(BOOTSTRAP_CODE, bytes20(address(deployer))));
 
         return
             address(uint160(uint256(keccak256(abi.encodePacked(bytes1(0xff), address(C4F), salt, bootstrapCodeHash)))));

@@ -29,8 +29,7 @@ contract Create4Factory {
         (0x0000000000000000000000000000000000000000) // MSG.SENDER, FILLED DYNAMICALLY (appended for frontrunning protection)
         Right-padded with 0s to 32 bytes
     */
-    bytes32 internal constant BOOTSTRAP_CODE = hex"3636363636335af13d36363e3d36f30000000000000000000000000000000000"; 
-
+    bytes32 internal constant BOOTSTRAP_CODE = hex"3636363636335af13d36363e3d36f30000000000000000000000000000000000";
 
     uint256 internal constant UINT256_MAX = 2 ** 256 - 1;
 
